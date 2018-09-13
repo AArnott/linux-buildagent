@@ -21,10 +21,9 @@ RUN apt-get update \
 
 ADD https://dot.net/v1/dotnet-install.sh /tmp/dotnet-install.sh
 
-RUN chmod +x /tmp/dotnet-install.sh
-RUN \
+RUN chmod +x /tmp/dotnet-install.sh \
 # .NET Core SDKs
- /tmp/dotnet-install.sh --install-dir /usr/share/dotnet -v 2.1.202 \
+ && /tmp/dotnet-install.sh --install-dir /usr/share/dotnet -v 2.1.202 \
  && /tmp/dotnet-install.sh --install-dir /usr/share/dotnet -v 2.1.300 \
  && /tmp/dotnet-install.sh --install-dir /usr/share/dotnet -v 2.1.301 \
  && /tmp/dotnet-install.sh --install-dir /usr/share/dotnet -v 2.1.302 \

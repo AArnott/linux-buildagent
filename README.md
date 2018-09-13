@@ -1,6 +1,7 @@
 # linux-buildagent
 
 [![DockerHub pull count](https://img.shields.io/docker/pulls/andrewarnott/linux-buildagent.svg)](https://hub.docker.com/r/andrewarnott/linux-buildagent/)
+[![Build Status](https://andrewarnott.visualstudio.com/OSS/_apis/build/status/linux-buildagent)](https://andrewarnott.visualstudio.com/OSS/_build/latest?definitionId=12)
 
 Docker image is based on Ubuntu xenial (16.04) and includes:
 

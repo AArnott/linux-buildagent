@@ -2,8 +2,10 @@ FROM ubuntu:xenial
 LABEL maintainer andrewarnott@gmail.com
 
 RUN apt-get update \
+ && apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF \
  && apt-get install -y --no-install-recommends \
         ca-certificates \
+        apt-transport-https \
         \
 # .NET Core dependencies
         libc6 \
@@ -17,6 +19,11 @@ RUN apt-get update \
         libunwind8 \
         zlib1g \
         wget \
+# Mono
+ && echo "deb https://download.mono-project.com/repo/ubuntu stable-xenial main" | tee /etc/apt/sources.list.d/mono-official-stable.list \
+ && apt update \
+ && apt install -y mono-devel \
+# Clean up apt package cache so it doesn't bloat the image with (eventually) stale data
  && rm -rf /var/lib/apt/lists/*
 
 ADD https://dot.net/v1/dotnet-install.sh /tmp/dotnet-install.sh
@@ -44,6 +51,13 @@ RUN \
 # Prime the package caches
 RUN dotnet new classlib -o /tmp/classlib \
  && rm -Rf /tmp/classlib
+
+# Install mono
+RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF \
+ && apt install apt-transport-https \
+ && echo "deb https://download.mono-project.com/repo/ubuntu stable-xenial main" | tee /etc/apt/sources.list.d/mono-official-stable.list \
+ && apt update \
+ && apt install mono-devel
 
 # Configure Kestrel web server to bind to port 80 when present
 ENV ASPNETCORE_URLS=http://+:80 \

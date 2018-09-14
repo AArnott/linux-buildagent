@@ -17,6 +17,8 @@ RUN apt-get update \
         libunwind8 \
         zlib1g \
         wget \
+# libgit2 dependency
+        libcurl3-gnutls \
  && rm -rf /var/lib/apt/lists/*
 
 ADD https://dot.net/v1/dotnet-install.sh /tmp/dotnet-install.sh

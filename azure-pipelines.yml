@@ -1,6 +1,6 @@
 trigger:
   branches:
-    include: ["master", "devops"]
+    include: ["master"]
   paths:
     exclude: ["**/*.md"]
 resources:

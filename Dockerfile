@@ -19,6 +19,8 @@ RUN apt-get update \
         wget \
 # libgit2 dependency
         libcurl3-gnutls \
+# everybody needs these
+        sudo \
  && rm -rf /var/lib/apt/lists/*
 
 ADD https://dot.net/v1/dotnet-install.sh /tmp/dotnet-install.sh

@@ -12,44 +12,9 @@ steps:
 - task: Docker@1
   displayName: Build an image
   inputs:
-    arguments: '-t andrewarnott/linux-buildagent:$(Build.BuildId) -t andrewarnott/linux-buildagent:bionic -t andrewarnott.azurecr.io/linux-buildagent:bionic -t andrewarnott.azurecr.io/linux-buildagent:$(Build.BuildId)'
+    arguments: '-t andrewarnott/linux-buildagent:bionic'
     imageName: linux-buildagent:$(Build.BuildId)
     qualifyImageName: false
-    includeSourceTags: true
-    includeLatestTag: false
-
-- task: Docker@1
-  displayName: Push image to Azure Container Registry
-  inputs:
-    azureSubscriptionEndpoint: Azure Free Trial (c5eda4ed-4681-4034-8835-65d67e7d4b7c)
-    azureContainerRegistry: andrewarnott.azurecr.io
-    command: Push an image
-    imageName: andrewarnott.azurecr.io/linux-buildagent:$(Build.BuildId)
-    qualifyImageName: false
-    includeSourceTags: true
-    includeLatestTag: false
-
-- task: Docker@1
-  displayName: Push image to Azure Container Registry with bionic tag
-  inputs:
-    azureSubscriptionEndpoint: Azure Free Trial (c5eda4ed-4681-4034-8835-65d67e7d4b7c)
-    azureContainerRegistry: andrewarnott.azurecr.io
-    command: Push an image
-    imageName: andrewarnott.azurecr.io/linux-buildagent:bionic
-    qualifyImageName: false
-    includeSourceTags: true
-    includeLatestTag: false
-
-- task: Docker@1
-  displayName: Push image to Docker Hub
-  inputs:
-    containerregistrytype: 'Container Registry'
-    dockerRegistryEndpoint: 'Docker Hub'
-    command: 'Push an image'
-    imageName: andrewarnott/linux-buildagent:$(Build.BuildId)
-    qualifyImageName: false
-    includeLatestTag: false
-  condition: succeededOrFailed()
 
 - task: Docker@1
   displayName: Push image to Docker Hub with bionic tag
@@ -59,5 +24,4 @@ steps:
     command: 'Push an image'
     imageName: andrewarnott/linux-buildagent:bionic
     qualifyImageName: false
-    includeLatestTag: false
   condition: succeededOrFailed()

@@ -2,9 +2,7 @@ FROM microsoft/dotnet:2.1-sdk-bionic
 LABEL maintainer andrewarnott@gmail.com
 
 RUN apt-get update \
- && apt-get install -y --no-install-recommends \
-        ca-certificates \
-        \
+ && apt-get install -y \
 # libgit2 dependency
         libcurl3 \
         libssl1.0.0 \
@@ -34,12 +32,5 @@ RUN chmod +x /tmp/dotnet-install.sh \
 # Prime the package caches
 RUN dotnet new classlib -o /tmp/classlib \
  && rm -Rf /tmp/classlib
-
-# Configure Kestrel web server to bind to port 80 when present
-ENV ASPNETCORE_URLS=http://+:80 \
-    # Enable detection of running in a container
-    DOTNET_RUNNING_IN_CONTAINER=true \
-    DOTNET_SKIP_FIRST_TIME_EXPERIENCE=1 \
-    DOTNET_CLI_TELEMETRY_OPTOUT=1
 
 WORKDIR /root

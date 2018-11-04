@@ -1,24 +1,13 @@
-FROM ubuntu:xenial
+FROM microsoft/dotnet:2.1-sdk-bionic
 LABEL maintainer andrewarnott@gmail.com
 
 RUN apt-get update \
  && apt-get install -y --no-install-recommends \
         ca-certificates \
         \
-# .NET Core dependencies
-        libc6 \
-        libcurl3 \
-        libgcc1 \
-        libgssapi-krb5-2 \
-        libicu55 \
-        liblttng-ust0 \
-        libssl1.0.0 \
-        libstdc++6 \
-        libunwind8 \
-        zlib1g \
-        wget \
 # libgit2 dependency
-        libcurl3-gnutls \
+        libcurl3 \
+        libssl1.0.0 \
 # everybody needs these
         sudo \
  && rm -rf /var/lib/apt/lists/*
@@ -39,11 +28,8 @@ RUN chmod +x /tmp/dotnet-install.sh \
  && /tmp/dotnet-install.sh --install-dir /usr/share/dotnet -v 2.1.2 --runtime aspnetcore \
  && /tmp/dotnet-install.sh --install-dir /usr/share/dotnet -v 2.1.3 --runtime aspnetcore \
 # .NET Core Runtimes
- && /tmp/dotnet-install.sh --install-dir /usr/share/dotnet -v 1.0.11 --runtime dotnet \
- && /tmp/dotnet-install.sh --install-dir /usr/share/dotnet -v 1.1.8 --runtime dotnet \
  && /tmp/dotnet-install.sh --install-dir /usr/share/dotnet -v 2.0.7 --runtime dotnet \
- && rm /tmp/dotnet.* \
- && ln -s /usr/share/dotnet/dotnet /usr/bin/dotnet
+ && rm /tmp/dotnet.*
 
 # Prime the package caches
 RUN dotnet new classlib -o /tmp/classlib \

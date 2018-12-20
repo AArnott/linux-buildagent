@@ -33,11 +33,16 @@ RUN chmod +x /tmp/dotnet-install.sh \
  && /tmp/dotnet-install.sh --install-dir /usr/share/dotnet -v 2.1.302 \
  && /tmp/dotnet-install.sh --install-dir /usr/share/dotnet -v 2.1.400 \
  && /tmp/dotnet-install.sh --install-dir /usr/share/dotnet -v 2.1.401 \
+ && /tmp/dotnet-install.sh --install-dir /usr/share/dotnet -v 2.1.402 \
+ && /tmp/dotnet-install.sh --install-dir /usr/share/dotnet -v 2.1.403 \
+ && /tmp/dotnet-install.sh --install-dir /usr/share/dotnet -v 2.1.500 \
+ && /tmp/dotnet-install.sh --install-dir /usr/share/dotnet -v 2.1.502 \
 # ASP.NET Core runtimes
  #&& /tmp/dotnet-install.sh --install-dir /usr/share/dotnet -v 2.1.0 --runtime aspnetcore \ # already installed
  && /tmp/dotnet-install.sh --install-dir /usr/share/dotnet -v 2.1.1 --runtime aspnetcore \
  && /tmp/dotnet-install.sh --install-dir /usr/share/dotnet -v 2.1.2 --runtime aspnetcore \
  && /tmp/dotnet-install.sh --install-dir /usr/share/dotnet -v 2.1.3 --runtime aspnetcore \
+ && /tmp/dotnet-install.sh --install-dir /usr/share/dotnet -v 2.1.6 --runtime aspnetcore \
 # .NET Core Runtimes
  && /tmp/dotnet-install.sh --install-dir /usr/share/dotnet -v 1.0.11 --runtime dotnet \
  && /tmp/dotnet-install.sh --install-dir /usr/share/dotnet -v 1.1.8 --runtime dotnet \

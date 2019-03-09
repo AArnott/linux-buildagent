@@ -47,9 +47,9 @@ RUN chmod +x /tmp/dotnet-install.sh \
  && /tmp/dotnet-install.sh --install-dir /usr/share/dotnet -v 2.1.3 --runtime aspnetcore \
  && /tmp/dotnet-install.sh --install-dir /usr/share/dotnet -v 2.1.6 --runtime aspnetcore \
 # .NET Core Runtimes
- && /tmp/dotnet-install.sh --install-dir /usr/share/dotnet -v 1.0.11 --runtime dotnet \
- && /tmp/dotnet-install.sh --install-dir /usr/share/dotnet -v 1.1.8 --runtime dotnet \
- && /tmp/dotnet-install.sh --install-dir /usr/share/dotnet -v 2.0.7 --runtime dotnet \
+ && /tmp/dotnet-install.sh --install-dir /usr/share/dotnet -v 1.0.14 --runtime dotnet \
+ && /tmp/dotnet-install.sh --install-dir /usr/share/dotnet -v 1.1.11 --runtime dotnet \
+ && /tmp/dotnet-install.sh --install-dir /usr/share/dotnet -v 2.0.9 --runtime dotnet \
  && rm /tmp/dotnet.* \
  && ln -s /usr/share/dotnet/dotnet /usr/bin/dotnet
 

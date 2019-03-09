@@ -39,6 +39,7 @@ steps:
     qualifyImageName: false
     includeSourceTags: true
     includeLatestTag: true
+  condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
 
 - task: Docker@1
   displayName: Push image to Docker Hub
@@ -49,7 +50,7 @@ steps:
     imageName: andrewarnott/linux-buildagent:$(Build.BuildId)
     qualifyImageName: false
     includeLatestTag: true
-  condition: succeededOrFailed()
+  condition: and(succeededOrFailed(), ne(variables['Build.Reason'], 'PullRequest'))
 
 - task: Docker@1
   displayName: Push image to Docker Hub with latest tag
@@ -60,4 +61,4 @@ steps:
     imageName: andrewarnott/linux-buildagent:latest
     qualifyImageName: false
     includeLatestTag: true
-  condition: succeededOrFailed()
+  condition: and(succeededOrFailed(), ne(variables['Build.Reason'], 'PullRequest'))

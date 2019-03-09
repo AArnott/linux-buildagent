@@ -38,6 +38,7 @@ RUN chmod +x /tmp/dotnet-install.sh \
  && /tmp/dotnet-install.sh --install-dir /usr/share/dotnet -v 2.1.500 \
  && /tmp/dotnet-install.sh --install-dir /usr/share/dotnet -v 2.1.502 \
  && /tmp/dotnet-install.sh --install-dir /usr/share/dotnet -v 2.1.600 \
+ && /tmp/dotnet-install.sh --install-dir /usr/share/dotnet -v 2.2.103 \
  && /tmp/dotnet-install.sh --install-dir /usr/share/dotnet -v 2.2.104 \
  && /tmp/dotnet-install.sh --install-dir /usr/share/dotnet -v 2.2.200 \
 # ASP.NET Core runtimes

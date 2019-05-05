@@ -28,19 +28,12 @@ ADD https://dot.net/v1/dotnet-install.sh /tmp/dotnet-install.sh
 RUN chmod +x /tmp/dotnet-install.sh \
 # .NET Core SDKs
  && /tmp/dotnet-install.sh --install-dir /usr/share/dotnet -v 2.1.202 \
- && /tmp/dotnet-install.sh --install-dir /usr/share/dotnet -v 2.1.300 \
- && /tmp/dotnet-install.sh --install-dir /usr/share/dotnet -v 2.1.301 \
  && /tmp/dotnet-install.sh --install-dir /usr/share/dotnet -v 2.1.302 \
- && /tmp/dotnet-install.sh --install-dir /usr/share/dotnet -v 2.1.400 \
- && /tmp/dotnet-install.sh --install-dir /usr/share/dotnet -v 2.1.401 \
- && /tmp/dotnet-install.sh --install-dir /usr/share/dotnet -v 2.1.402 \
  && /tmp/dotnet-install.sh --install-dir /usr/share/dotnet -v 2.1.403 \
- && /tmp/dotnet-install.sh --install-dir /usr/share/dotnet -v 2.1.500 \
- && /tmp/dotnet-install.sh --install-dir /usr/share/dotnet -v 2.1.502 \
- && /tmp/dotnet-install.sh --install-dir /usr/share/dotnet -v 2.1.600 \
- && /tmp/dotnet-install.sh --install-dir /usr/share/dotnet -v 2.2.103 \
- && /tmp/dotnet-install.sh --install-dir /usr/share/dotnet -v 2.2.104 \
- && /tmp/dotnet-install.sh --install-dir /usr/share/dotnet -v 2.2.200 \
+ && /tmp/dotnet-install.sh --install-dir /usr/share/dotnet -v 2.1.506 \
+ && /tmp/dotnet-install.sh --install-dir /usr/share/dotnet -v 2.1.603 \
+ && /tmp/dotnet-install.sh --install-dir /usr/share/dotnet -v 2.2.106 \
+ && /tmp/dotnet-install.sh --install-dir /usr/share/dotnet -v 2.2.203 \
 # ASP.NET Core runtimes
  #&& /tmp/dotnet-install.sh --install-dir /usr/share/dotnet -v 2.1.0 --runtime aspnetcore \ # already installed
  && /tmp/dotnet-install.sh --install-dir /usr/share/dotnet -v 2.1.1 --runtime aspnetcore \
